@@ -11,7 +11,7 @@ install:
   - docker build -t prcleary/weasyprint:latest .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push prcleary/weasyprint:latest
-  - docker run -d -p 5001:5001 --name weasyprint weasyprint
+  - docker run -d -p 5001:5001 --name weasyprint prcleary/weasyprint:latest
 
 script:
   - docker ps | grep weasyprint
