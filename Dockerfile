@@ -18,6 +18,8 @@ RUN apt-get -y update \
         python-dev \
         python-lxml \
         shared-mime-info \
+        cabextract \
+        xfonts-utils \
 && apt-get install -y libcairo2=1.14.8-1 \
 && apt-get -y clean
 
