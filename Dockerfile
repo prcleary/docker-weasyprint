@@ -20,14 +20,20 @@ RUN apt-get -y update \
         shared-mime-info \
         cabextract \
         xfonts-utils \
+        fontconfig \
 && apt-get install -y libcairo2=1.14.8-1 \
 && apt-get -y clean
 
-# Bit I have added 
+# Bits I have added 
 RUN wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
 RUN dpkg -i ttf-mscorefonts-installer_3.6_all.deb
 RUN dpkg-reconfigure ttf-mscorefonts-installer
+RUN wget https://github.com/twbs/bootstrap/releases/download/v3.1.0/bootstrap-3.1.0-dist.zip
+RUN unzip bootstrap-3.1.0-dist.zip
+RUN cp dist/fonts/* /usr/local/share/fonts/
+RUN fc-cache
 
 EXPOSE 5001
 
 CMD gunicorn --bind 0.0.0.0:5001 wsgi:app
+
