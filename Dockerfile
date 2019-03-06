@@ -18,7 +18,7 @@ RUN apt-get -y update \
         python-dev \
         python-lxml \
         shared-mime-info \
-&& apt-get install -y libcairo2=1.14.8-1
+&& apt-get install -y libcairo2=1.14.8-1 \
 && apt-get -y clean
 
 # Bit I have added 
