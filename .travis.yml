@@ -10,7 +10,7 @@ services:
 install:
   - docker build -t weasyprint .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push
+  - docker push prcleary/weasyprint
   - docker run -d -p 5001:5001 --name weasyprint weasyprint
 
 script:
