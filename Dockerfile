@@ -26,6 +26,7 @@ RUN apt-get -y update \
 # Bit I have added 
 RUN wget http://ftp.us.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
 RUN dpkg -i ttf-mscorefonts-installer_3.6_all.deb
+RUN dpkg-reconfigure ttf-mscorefonts-installer
 
 EXPOSE 5001
 
