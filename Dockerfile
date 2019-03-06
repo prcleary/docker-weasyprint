@@ -21,6 +21,7 @@ RUN apt-get -y update \
         cabextract \
         xfonts-utils \
         fontconfig \
+        unzip \
 && apt-get install -y libcairo2=1.14.8-1 \
 && apt-get -y clean
 
