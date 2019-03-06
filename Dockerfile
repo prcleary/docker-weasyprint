@@ -21,6 +21,15 @@ RUN apt-get -y update \
     && apt-get -t testing install -y libcairo2=1.14.8-1 \
     && apt-get -y clean
 
+# Bit I have added from <Del>https://github.com/captnswing/msttcorefonts/blob/master/Dockerfile
+RUN apt-get install -y --no-install-recommends software-properties-common curl
+RUN apt-add-repository multiverse
+RUN apt-get update
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
+ADD localfonts.conf /etc/fonts/local.conf
+RUN fc-cache -f -v
+
 EXPOSE 5001
 
 CMD gunicorn --bind 0.0.0.0:5001 wsgi:app
