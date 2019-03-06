@@ -25,7 +25,7 @@ RUN apt-get -y update \
 
 # Bit I have added from https://github.com/captnswing/msttcorefonts/blob/master/Dockerfile
 RUN apt-get install -y --no-install-recommends software-properties-common curl
-RUN apt-add-repository multiverse
+# RUN apt-add-repository multiverse
 RUN apt-get update
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
